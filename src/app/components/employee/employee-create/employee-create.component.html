@@ -1,0 +1,96 @@
+<mat-card>
+    <mat-card-title>Add Employee</mat-card-title>
+    <form>
+        <mat-form-field>
+            <input matInput placeholder="Input Username" [(ngModel)]="employee.username" #username="ngModel"
+                name="username" required>
+        </mat-form-field>
+        <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert">
+            <div *ngIf="username.errors?.['required']" class="errorInput">
+                Username is required.
+            </div>
+        </div>
+        <mat-form-field>
+            <input matInput placeholder="Input First Name" [(ngModel)]="employee.firstName" #firstName="ngModel"
+                name="firstName" required>
+        </mat-form-field>
+        <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="alert">
+            <div *ngIf="firstName.errors?.['required']" class="errorInput">
+                First Name is required.
+            </div>
+        </div>
+        <mat-form-field>
+            <input matInput placeholder="Input Last Name" [(ngModel)]="employee.lastName" name="lastName"
+                #lastName="ngModel" required>
+        </mat-form-field>
+        <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="alert">
+            <div *ngIf="lastName.errors?.['required']" class="errorInput">
+                Last Name is required.
+            </div>
+        </div>
+        <mat-form-field>
+            <input matInput placeholder="Input Email" [(ngModel)]="employee.email" name="email" #email="ngModel"
+                required>
+        </mat-form-field>
+        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert">
+            <div *ngIf="email.errors?.['required']" class="errorInput">
+                Email is required.
+            </div>
+        </div>
+        <mat-form-field>
+            <input matInput [matDatepicker]="datepicker" [max]="maxDate" placeholder="Birth Date"
+                [(ngModel)]="employee.birthDate" #birthDate="ngModel" required>
+            <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+            <mat-datepicker #datepicker></mat-datepicker>
+        </mat-form-field>
+        <div *ngIf="birthDate.invalid && (birthDate.dirty || birthDate.touched)" class="alert">
+            <div *ngIf="birthDate.errors?.['required']" class="errorInput">
+                Birth Date is required.
+            </div>
+        </div>
+        <mat-form-field>
+            <input type="number" matInput placeholder="Input Basic Salary" [(ngModel)]="employee.basicSalary"
+                name="basicSalary" #basicSalary="ngModel" required>
+        </mat-form-field>
+        <div *ngIf="basicSalary.invalid && (basicSalary.dirty || basicSalary.touched)" class="alert">
+            <div *ngIf="basicSalary.errors?.['required']" class="errorInput">
+                Basic Salary is required.
+            </div>
+        </div>
+        <mat-form-field>
+            <input matInput placeholder="Input Status" [(ngModel)]="employee.status" name="status" #status="ngModel"
+                required>
+        </mat-form-field>
+        <div *ngIf="status.invalid && (status.dirty || status.touched)" class="alert">
+            <div *ngIf="status.errors?.['required']" class="errorInput">
+                Status is required.
+            </div>
+        </div>
+        <mat-form-field>
+            <input matInput placeholder="Input Group" [(ngModel)]="employee.group" name="group" #group="ngModel"
+                required>
+        </mat-form-field>
+        <div *ngIf="group.invalid && (group.dirty || group.touched)" class="alert">
+            <div *ngIf="group.errors?.['required']" class="errorInput">
+                Group is required.
+            </div>
+        </div>
+        <mat-form-field>
+            <input matInput placeholder="Input Description" [(ngModel)]="employee.description" name="description"
+                #description="ngModel" required>
+        </mat-form-field>
+        <div *ngIf="description.invalid && (description.dirty || description.touched)" class="alert">
+            <div *ngIf="description.errors?.['required']" class="errorInput">
+                Description is required.
+            </div>
+        </div>
+
+        <button mat-raised-button (click)="createEmployee()" color="primary">
+            Create
+        </button>
+        <button mat-raised-button (click)="cancel()">
+            Cancel
+        </button>
+    </form>
+
+</mat-card>
